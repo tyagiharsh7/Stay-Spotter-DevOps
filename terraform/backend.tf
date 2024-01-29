@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "stayspotter"
-    region = var.region
-    key    = "eks/terraform.tfstate"
+    region = "us-west-1"
+    key    = "stayspotter/eks/terraform.tfstate"
   }
 }
