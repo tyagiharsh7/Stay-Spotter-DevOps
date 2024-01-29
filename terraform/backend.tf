@@ -1,5 +1,3 @@
-variable "region" {}
-
 terraform {
   backend "s3" {
     bucket = "stayspotter"
