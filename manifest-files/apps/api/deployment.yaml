@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stayspotter-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stayspotter-api
+  template:
+    metadata:
+      labels:
+        app: stayspotter-api
+    spec:
+      containers:
+      - name: stayspotter-api
+        image: tyagiharsh7/stay-spotter-api:latest
+        ports:
+        - containerPort: 8800
+        env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: stayspotter-mongodb-secret
+              key: mongodb-uri

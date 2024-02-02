@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stayspotter-client-service
+spec:
+  selector:
+    app: stayspotter-client
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
