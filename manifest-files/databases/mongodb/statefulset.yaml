@@ -21,12 +21,16 @@ spec:
         volumeMounts:
         - name: mongodb-data
           mountPath: /data/db
-  volumeClaimTemplates:
-  - metadata:
-      name: mongodb-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "gp2"
-      resources:
-        requests:
-          storage: 1Gi
+  # volumeClaimTemplates:
+  # - metadata:
+  #     name: mongodb-data
+  #   spec:
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     storageClassName: "gp2"
+  #     resources:
+  #       requests:
+  #         storage: 1Gi
+  volumes:
+  - name: my-volume
+    persistentVolumeClaim:
+      claimName: stayspotter-ebs-pvc
