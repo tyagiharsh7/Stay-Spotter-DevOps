@@ -31,6 +31,6 @@ spec:
   #       requests:
   #         storage: 1Gi
   volumes:
-  - name: my-volume
+  - name: stayspotter-ebs-pv
     persistentVolumeClaim:
       claimName: stayspotter-ebs-pvc
