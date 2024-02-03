@@ -1,11 +1,25 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: stayspotter-mongodb
+# spec:
+#   ports:
+#   - port: 27017
+#     targetPort: 27017
+#   clusterIP: None
+#   selector:
+#     app: stayspotter-mongodb
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: stayspotter-mongodb
+  name: mongodb
+  labels:
+    app: mongodb
 spec:
   ports:
-  - port: 27017
-    targetPort: 27017
+    - name: mongodb
+      port: 27017
   clusterIP: None
   selector:
-    app: stayspotter-mongodb
+    app: mongodb
