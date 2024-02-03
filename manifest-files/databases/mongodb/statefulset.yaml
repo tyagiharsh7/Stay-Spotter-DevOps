@@ -51,23 +51,23 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: stayspotter-mongodb
+  name: mongodb
 spec:
   selector:
     matchLabels:
-      app: stayspotter-mongodb
-  serviceName: stayspotter-mongodb
+      app: mongodb
+  serviceName: mongodb
   replicas: 3
   template:
     metadata:
       labels:
-        app: stayspotter-mongodb
+        app: mongodb
     spec:
       containers:
-        - name: stayspotter-mongodb
+        - name: mongodb
           image: mongo:latest
           ports:
-          - name: stayspotter-mongodb
+          - name: mongodb
             containerPort: 27017
           volumeMounts:
           - name: data
