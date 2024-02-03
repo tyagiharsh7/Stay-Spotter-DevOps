@@ -34,3 +34,15 @@ spec:
       - name: stayspotter-ebs-pv
         persistentVolumeClaim:
           claimName: stayspotter-ebs-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: stayspotter-ebs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: vol-0774258e41c9cbe2a
