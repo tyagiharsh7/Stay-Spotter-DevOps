@@ -19,4 +19,12 @@ spec:
         - containerPort: 80
         env:
         - name: VITE_BASE_API_URI
-          value: "http://stayspotter-api-service:8800"
+          valueFrom:
+            configMapKeyRef:
+              name: stayspotter-config
+              key: VITE_BASE_API_URI
+        - name: VITE_BASE_DEFAULT_CITY
+          valueFrom:
+            configMapKeyRef:
+              name: stayspotter-config
+              key: VITE_BASE_DEFAULT_CITY

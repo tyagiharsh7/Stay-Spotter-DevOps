@@ -17,9 +17,19 @@ spec:
         image: tyagiharsh7/stay-spotter-api:latest
         ports:
         - containerPort: 8800
-        # env:
-        # - name: MONGODB_URI
-        #   valueFrom:
-        #     secretKeyRef:
-        #       name: stayspotter-mongodb-secret
-        #       key: mongodb-uri
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: stayspotter-config
+              key: PORT
+        - name: MONGO
+          valueFrom:
+            secretKeyRef:
+              name: stayspotter-secret
+              key: MONGO
+        - name: JWTSECRET
+          valueFrom:
+            secretKeyRef:
+              name: stayspotter-secret
+              key: JWTSECRET
